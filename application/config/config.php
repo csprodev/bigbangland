@@ -16,7 +16,7 @@
 | environments.
 |
 */
-$config['base_url'] = 'http://bigbangland.com/bigbangland';
+$config['base_url'] = '';
 
 /*
 |--------------------------------------------------------------------------
