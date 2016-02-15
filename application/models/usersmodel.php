@@ -95,24 +95,28 @@ class Usersmodel extends CI_Model
 
 	function Insert($post)
 	{
+		// print_r($post);die();
 		$this->db->trans_start();
-		$this->db->set('user_id', $post['user_id']);
+		// $tipe = '';
+		// if($post['user_type'] == '1')
+		// 	$tipe = 'Seller';
+		// else
+		// 	$tipe = 'Buyer';
+		// $user_code = $tipe.'003';
+		// $this->db->set('user_code',$user_code);
 		$this->db->set('user_name',$post['user_name']);
 		$this->db->set('password',md5($post['password']));
+		$this->db->set('id_no',$post['id_no']);
+		$this->db->set('user_type',$post['user_type']);
+		$this->db->set('address_by_id',$post['address_by_id']);
+		$this->db->set('province_by_id',$post['province_by_id']);
+		$this->db->set('city_by_id',$post['city_by_id']);
+		$this->db->set('address',$post['address']);
+		$this->db->set('province',$post['province']);
+		$this->db->set('city',$post['city']);
 		$this->db->set('phone',$post['phone']);
 		$this->db->set('mobile_phone',$post['mobile_phone']);
 		$this->db->set('email',$post['email']);
-		$this->db->set('register_as',$post['user_type']);
-		$this->db->set('id_card_type',$post['type_id']);
-		$this->db->set('id_no',$post['id_no']);
-		$this->db->set('full_name',$post['full_name']);
-		$this->db->set('address_by_id',$post['address_by_id']);
-		$this->db->set('province_by_id',$post['province']);
-		$this->db->set('city_by_id',$post['city']);
-		$this->db->set('address',$post['address']);
-		$this->db->set('province',$post['curr_province']);
-		$this->db->set('city',$post['curr_city']);
-		
 		$this->db->insert('users');
 		$this->db->trans_complete();
 	}
@@ -123,7 +127,6 @@ class Usersmodel extends CI_Model
 		$this->db->set('user_name',$post['user_name']);
 		if($post['password'] != '')
 			$this->db->set('password',md5($post['password']));
-		$this->db->set('user_id',$post['user_id']);
 		$this->db->set('id_no',$post['id_no']);
 		$this->db->set('user_type',$post['user_type']);
 		$this->db->set('address_by_id',$post['address_by_id']);
@@ -165,36 +168,6 @@ class Usersmodel extends CI_Model
 			return $res->row();
 		else
 			return null;
-	}
-
-	public function get_data_prof()
-	{
-		$this->db->select('lokasi_nama as province, lokasi_propinsi as id_province');
-		$this->db->from('inf_lokasi');
-		$this->db->where('lokasi_kabupatenkota', '00');
-
-		return $this->db->get()->result_array();
-	}
-
-	public function get_city($id)
-	{
-		$this->db->select('lokasi_nama as city, lokasi_propinsi as id_city');
-		$this->db->from('inf_lokasi');
-		$this->db->where('lokasi_propinsi', $id);
-		$this->db->where("lokasi_kabupatenkota != '00'", null, false);
-		$this->db->where("lokasi_kecamatan = '00'", null, false);
-
-		return $this->db->get()->result_array();
-	}
-
-	public function get_user_id($param)
-	{
-		$this->db->select('user_id');
-		$this->db->from('users');
-		$this->db->where("user_id like '%".$param."%'",null, false);
-		$this->db->order_by('user_id', 'desc');
-
-		return $this->db->get()->row_array();
 	}
 
 }
