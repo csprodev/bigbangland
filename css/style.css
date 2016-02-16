@@ -2806,7 +2806,8 @@ p.privacy-para {
 	  width: 60%;
 	  margin: 2% auto 0;
 }
-.form-info input[type="text"],.form-info textarea,.form-info input[type="password"],.form-info input[type="email"]{
+.form-info input[type="text"],.form-info textarea,.form-info input[type="password"],
+.form-info input[type="email"],.form-info input[type="checkbox"],.form-info select{
 	outline: none;
   	background: none;
   	color: #a3a3a3;
