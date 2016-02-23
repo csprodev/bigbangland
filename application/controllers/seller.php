@@ -2,6 +2,12 @@
 
 class Seller extends MY_Controller {
 
+	public function __construct()
+	{
+		parent::__construct();
+		$this->load->model('usersmodel');
+	}
+
 	public function index()
 	{
 		$this->load->helper('formlibrary');
@@ -18,8 +24,6 @@ class Seller extends MY_Controller {
 
 	function edit($email)
 	{
-		print_r($email);die();
-		$this->load->model('usersmodel');
 		if(isset($_POST['btnsubmit']))
 		{
 			$this->usersmodel->update($_POST);
@@ -33,16 +37,15 @@ class Seller extends MY_Controller {
 
 	function add()
 	{
-		$this->load->model('usersmodel');
+		// $data_prof = $this->usersmodel->get_data_prof();
 		if(isset($_POST['btnsubmit']))
 		{
-			$this->usersmodel->insert($_POST);
-			redirect('login/success');
+
 		}
 		$data['action'] = 'add';
 		// print_r($user_name);die();
-		
-		$this->RenderView('register',$data);
+		// $data['province'] = $data_prof;
+		$this->RenderView('seller',$data);
 	}
 }
 

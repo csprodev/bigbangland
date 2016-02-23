@@ -42,7 +42,7 @@
 					{
 						?>
 						<li>
-							<a style="color:#000;" href="<?php echo site_url('index.php/seller')?>"><i class="glyphicon glyphicon-check"> </i>Sell</a>
+							<a style="color:#000;" href="<?php echo site_url('index.php/seller/add')?>"><i class="glyphicon glyphicon-check"> </i>Sell</a>
 						</li>
 						<?php
 					}
