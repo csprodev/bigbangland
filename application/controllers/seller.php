@@ -37,14 +37,14 @@ class Seller extends MY_Controller {
 
 	function add()
 	{
-		// $data_prof = $this->usersmodel->get_data_prof();
+		$data_prof = $this->usersmodel->get_data_prof();
 		if(isset($_POST['btnsubmit']))
 		{
 
 		}
 		$data['action'] = 'add';
 		// print_r($user_name);die();
-		// $data['province'] = $data_prof;
+		$data['province'] = $data_prof;
 		$this->RenderView('seller',$data);
 	}
 }
