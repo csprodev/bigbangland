@@ -126,7 +126,7 @@
 			<div class="bottom-header">
 				<div class="header-bottom">
 					<div class=" bottom-head">
-						<a href="">
+						<a href="<?php echo site_url('index.php/buy')?>">
 							<div class="buy-media">
 								<i class="buy"> </i>
 								<h6>Buy</h6>
@@ -142,7 +142,7 @@
 						</a>
 					</div>
 					<div class=" bottom-head">
-						<a href="">
+						<a href="<?php echo site_url('index.php/seller')?>">
 							<div class="buy-media">
 							<i class="pg"> </i>
 							<h6>Sell</h6>

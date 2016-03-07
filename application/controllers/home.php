@@ -4,7 +4,6 @@ class Home extends MY_Controller {
 
 	public function index()
 	{
-		// print_r('tes');die();
 		$this->load->model('usersmodel');
 		$this->RenderView('home');
 	}
